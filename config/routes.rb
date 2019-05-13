@@ -6,4 +6,3 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :groups, only: [:new, :edit]
 end
-
