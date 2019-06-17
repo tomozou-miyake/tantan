@@ -1,0 +1,14 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.sidebar{
+  @include box(635px,450px);
+  background-color:#68d60c;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
+  margin-left:25px;
+}

@@ -21,19 +21,20 @@
             = link_to "Group",new_group_path
           %li
             = link_to "Edit",edit_user_path(current_user)
-              
           %li
             = link_to "LogOut", destroy_user_session_path, method: :delete
           %li
             %a{:href => "/tweets/new.html"} New
-    %h1.header__name
-      = current_user.name
-      .groups
-    .group
-      - current_user.groups.each do |group|
-        = link_to group_messages_path(group) do
-          .group__name
-            = group.name
-          .group__message
-            メッセージはまだありません。
-    %script{:src => "./app.js", :type => "text/javascript"}
+    .main
+      .sidebar
+        %h1.sidebar__header__name
+          = current_user.name
+        .group
+          - current_user.groups.each do |group|
+            = link_to group_messages_path(group) do
+              .group__name
+                = group.name
+              .group__message
+                メッセージはまだありません。
+        %script{:src => "./app.js", :type => "text/javascript"}
+      .message
