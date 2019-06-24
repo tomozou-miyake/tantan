@@ -29,6 +29,16 @@
       .sidebar
         %h1.sidebar__header__name
           = current_user.name
+        .side-header
+          %p.sideheader__user-name
+            = link_to edit_user_path(current_user) do
+              新規登録
+          %ul.user-menu
+            %li.user-menu__edit-user
+              %i.fa
+            %li.user-menu__new-group
+
+
         .group
           - current_user.groups.each do |group|
             = link_to group_messages_path(group) do
