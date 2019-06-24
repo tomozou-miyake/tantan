@@ -27,12 +27,9 @@
             %a{:href => "/tweets/new.html"} New
     .main
       .sidebar
-        %h1.sidebar__header__name
-          = current_user.name
         .side-header
-          %p.sideheader__user-name
-            = link_to edit_user_path(current_user) do
-              新規登録
+          %h1.sideheader__name
+            = current_user.name
           %ul.user-menu
             %li.user-menu__edit-user
               %i.fa
