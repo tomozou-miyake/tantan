@@ -15,5 +15,40 @@
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 40px;
   margin-left:25px;
-}
+  color: #545454;
+  &__header{
+    font-size:45px;
+    text-align: center;
+    margin:10px;
+    border-bottom: ridge 6px rgba(39, 26, 44, 0.2);
+  }
+  &__main{
+    margin-left:10px;
+    display:flex;
+    &__left{
+      &__user{
+        &--name{
+          font-size:20px;
+        }
+        &--picture{
 
+        }
+      }
+      &__text{
+        font-size:15px;
+        margin-left:15px;
+      }
+    }
+    &__right{
+      @include box(100px,300px);
+      background-color:#fff;
+      font-size:30px;
+      margin-left: 400px;
+      margin-top:400px;
+
+    }
+  }
+}
+.page_name{
+  @include box(100px,100px);
+}

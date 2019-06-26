@@ -1,0 +1,63 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Sample
+    %style{:href => "./style.css", :type => "text/css"}
+    / Compiled and minified CSS
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css", :rel => "stylesheet"}/
+    / Compiled and minified JavaScript
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :src => "https://code.jquery.com/jquery-3.4.1.js"}
+  %body
+    / 変更点はこちら↓ blue lighten-2 というクラスがついています！
+    %nav.blue.lighten-2
+      .nav-wrapper
+        %a.brand-logo{:href => "#"} MiniBlog
+        %ul#nav-mobile.right.hide-on-med-and-down
+          %li
+            %a{:href => "sass.html"} SignIn
+          %li
+            = link_to "Group",new_group_path
+          %li
+            = link_to "Edit",edit_user_path(current_user)
+          %li
+            = link_to "LogOut", destroy_user_session_path, method: :delete
+          %li
+            %a{:href => "/tweets/new.html"} New
+    .main
+      .sidebar
+        .side-header
+          %h1.sideheader__name
+            = current_user.name
+          %ul.user-menu
+            %li.user-menu__edit-user
+              %i.fa
+            %li.user-menu__new-group
+        .side-main
+          .side-main__group
+            - current_user.groups.each do |group|
+              = link_to group_messages_path(group) do
+                %h1.side-main__group-name
+                  =group.name
+                %h2.side-main__group-message
+                  感想
+
+      .message
+        .message__header
+          スポーツNews
+        .message__main
+          .message__main__left
+            .message__main__left__user
+              .message__main__left__user--name
+                1:大塩平八郎
+              .message__main__left__user--picture
+            .message__main__left__text
+              応仁の乱でござる
+            .message__main__left__user
+              .message__main__left__user--name
+                1:大塩平八郎
+              .message__main__left__user--picture
+            .message__main__left__text
+              応仁の乱でござる
+

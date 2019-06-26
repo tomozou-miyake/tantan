@@ -5,12 +5,13 @@
 
 .sidebar{
   @include box(635px,450px);
-  background-color:#4d639f;
+  background-color:#77aad7;
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 40px;
   margin-left:25px;
+  color: #545454;
 }
 .side-header{
     border-bottom: ridge 6px rgba(39, 26, 44, 0.2);
@@ -22,4 +23,19 @@
     width: 100%;
     font-weight: bold;
     font-size:20px;
+    color:#545454;
+}
+.side-main{
+  color:#545454;
+  margin-left:30px;
+  &__group-name{
+    font-size: 40px;
+  }
+  &__group-message{
+    font-size: 25px;
+  }
+}
+.tano{
+  background-color:white;
+  @include box(100px,100px);
 }
