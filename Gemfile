@@ -69,3 +69,4 @@ gem 'erb2haml'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pg', '~> 0.19.0', group: :production
+gem "font-awesome-rails"

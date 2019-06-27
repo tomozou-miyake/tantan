@@ -22,7 +22,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
   include CarrierWave::MiniMagick
 
-  process resize_to_fit: [800, 800]
+  process resize_to_fit: [150, 150]
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
