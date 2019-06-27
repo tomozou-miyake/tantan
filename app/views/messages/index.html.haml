@@ -23,8 +23,6 @@
             = link_to "Edit",edit_user_path(current_user)
           %li
             = link_to "LogOut", destroy_user_session_path, method: :delete
-          %li
-            %a{:href => "/tweets/new.html"} New
     .main
       .sidebar
         .side-header
@@ -39,72 +37,31 @@
             - current_user.groups.each do |group|
               = link_to group_messages_path(group) do
                 %h1.side-main__group-name
-                  =group.name
+                  = group.name
                 %h2.side-main__group-message
-                  感想
+                  = group.show_last_message
 
       .message
         .message__header
-          スポーツNews
+          = @group.name
         .message__main
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-            応仁の乱でござる
-          .message__main__user
-            .message__main__user--name
-              1:大塩平八郎
-            .message__main__user--picture
-          .message__main__text
-      .message__right
+          .message__main__left
+            - @messages.each do |message|
+              .message__main__left__user
+                .message__main__left__user--name
+                  = message.user.name
+                .message__main__left__user--picture
+              - if message.content.present?
+                .message__main__left__text
+                  = message.content
+              = image_tag message.image.url, class: 'lower-message__image' ,size:'40pxx40px'if message.image.present?
+          .message__main__right
+            .form
+              = form_for [@group, @message] do |f|
+                = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+                .form__mask
+                  = f.label :image, class: 'form__mask__image' do
+                    = fa_icon 'picture-o', class: 'icon'
+                    = f.file_field :image, class: 'hidden'
+                = f.submit 'Send', class: 'form__submit'
 

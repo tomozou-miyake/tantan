@@ -26,6 +26,9 @@
     margin-left:10px;
     display:flex;
     &__left{
+      @include box(450px,450px);
+      overflow: scroll;
+      border-bottom: dashed 1px rgba(39, 26, 44, 0.2);
       &__user{
         &--name{
           font-size:20px;
@@ -40,11 +43,11 @@
       }
     }
     &__right{
-      @include box(100px,300px);
+      @include box(300px,400px);
       background-color:#fff;
       font-size:30px;
-      margin-left: 400px;
-      margin-top:400px;
+      border-radius: 50%;
+      background-color:#00a497;
 
     }
   }
