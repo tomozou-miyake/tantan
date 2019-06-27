@@ -23,8 +23,6 @@
             = link_to "Edit",edit_user_path(current_user)
           %li
             = link_to "LogOut", destroy_user_session_path, method: :delete
-          %li
-            %a{:href => "/tweets/new.html"} New
     .main
       .sidebar
         .side-header
@@ -45,7 +43,7 @@
 
       .message
         .message__header
-          スポーツNews
+          = @group.name
         .message__main
           .message__main__left
             - @messages.each do |message|

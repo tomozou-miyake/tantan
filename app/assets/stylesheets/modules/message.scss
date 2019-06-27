@@ -28,6 +28,7 @@
     &__left{
       @include box(450px,450px);
       overflow: scroll;
+      border-bottom: solid 1px;
       &__user{
         &--name{
           font-size:20px;
