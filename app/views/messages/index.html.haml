@@ -47,14 +47,14 @@
         .message__main
           .message__main__left
             - @messages.each do |message|
-              .message__main__left__user
+              .message__main__left__user{"data-message-id": message.id}
                 .message__main__left__user--name
                   = message.user.name
                 .message__main__left__user--picture
-              - if message.content.present?
-                .message__main__left__text
-                  = message.content
-              = image_tag message.image.url, class: 'lower-message__image' ,size:'40pxx40px'if message.image.present?
+                - if message.content.present?
+                  .message__main__left__text
+                    = message.content
+                = image_tag message.image.url, class: 'lower-message__image' ,size:'40pxx40px'if message.image.present?
           .message__main__right
             .form
               = form_for [@group, @message] do |f|
