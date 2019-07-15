@@ -1,6 +1,7 @@
 $(function(){
   function buildPost(message){
-    include_image =(message.image_url) ? `<img src="${message.image_url}">` : "";
+    include_image =(message.image_url) ?
+    `<img src="${message.image_url}">` : "";
     var html = `
         <div class="message__main__left__user" data-message-id=${message.id}>
         <div class="message__main__left__user--name">
@@ -26,13 +27,13 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(message){
+    .done(function(data){
       var html = buildPost(message);
       $('.message__main__left').append(html);
-      $('.message__main').animate({ scrollTop: $('.message__main__left')[0].scrollHeight });
+      $('.message__main__left').animate({ scrollTop: $('document')[0].scrollHeight },'fast');
        $('form')[0].reset();
     });
-    .fail(function(message){
+    .fail(function(data){
       alert('エラーが出ました。確認してください');
     })
     return false;
