@@ -27,16 +27,16 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
+    .done(function(message){
       var html = buildPost(message);
       $('.message__main__left').append(html);
-      $('.message__main__left').animate({ scrollTop: $('document')[0].scrollHeight },'fast');
+      $('.message__main__left').animate({ scrollTop: $('.message__main__left')[0].scrollHeight },'fast');
        $('form')[0].reset();
     });
-    .fail(function(data){
+    .fail(function(message){
       alert('エラーが出ました。確認してください');
-    })
+    });
     return false;
-  })
+  });
 });
 
